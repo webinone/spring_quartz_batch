@@ -3,6 +3,7 @@ package com.example.spring_quartz_batch.config;
 import static org.quartz.JobBuilder.newJob;
 
 import com.example.spring_quartz_batch.job.TestJob1;
+import com.example.spring_quartz_batch.job.TestJob2;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.PostConstruct;
@@ -24,10 +25,12 @@ public class JobConfig {
 
   @PostConstruct
   public void start(){
-    JobDetail jobDetail = buildJobDetail(TestJob1.class, new HashMap());
+    JobDetail jobDetailTest1 = buildJobDetail(TestJob1.class, new HashMap());
+    JobDetail jobDetailTest2 = buildJobDetail(TestJob2.class, new HashMap());
 
     try{
-      scheduler.scheduleJob(jobDetail, buildJobTrigger("0/5 * * * * ?"));
+      scheduler.scheduleJob(jobDetailTest1, buildJobTrigger("0/5 * * * * ?"));
+      scheduler.scheduleJob(jobDetailTest2, buildJobTrigger("0/3 * * * * ?"));
     } catch(SchedulerException e){
       e.printStackTrace();
     }
