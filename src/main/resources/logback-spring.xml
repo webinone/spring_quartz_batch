@@ -1,0 +1,18 @@
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="com.example.spring_quartz_batch.common.log.CommonLogLayout">
+                <timestampFormat>yyyy-MM-dd HH:mm:ss</timestampFormat>
+                <timestampFormatTimezoneId>Asia/Seoul</timestampFormatTimezoneId>
+                <appendLineSeparator>true</appendLineSeparator>
+
+                <jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+                </jsonFormatter>
+            </layout>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>

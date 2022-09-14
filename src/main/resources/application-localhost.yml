@@ -1,0 +1,30 @@
+spring:
+  config:
+    activate:
+      on-profile: localhost
+  application:
+    name: adjustment-server
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    enabled: true
+
+datasource:
+  o2o:
+    hikari:
+      jdbc-url: jdbc:oracle:thin:@117.52.82.162:1521:BAROGO
+      username: BRG_ZOO_API
+      password: b#g_z$o_a%i160
+      driver-class-name: oracle.jdbc.OracleDriver
+      maximum-pool-size: 10
+      minimumIdle: 10
+      max-lifetime: 300000
+
+  adjustment:
+    hikari:
+      jdbc-url: jdbc:postgresql://localhost:5432/zoo
+      username: zoo
+      password: zoo
+      driver-class-name: org.postgresql.Driver
+      maximum-pool-size: 10
+      minimumIdle: 10
