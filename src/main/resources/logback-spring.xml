@@ -1,7 +1,7 @@
 <configuration>
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
-            <layout class="com.example.spring_quartz_batch.common.log.CommonLogLayout">
+            <layout class="io.barogo.adjustment.common.log.CommonLogLayout">
                 <timestampFormat>yyyy-MM-dd HH:mm:ss</timestampFormat>
                 <timestampFormatTimezoneId>Asia/Seoul</timestampFormatTimezoneId>
                 <appendLineSeparator>true</appendLineSeparator>

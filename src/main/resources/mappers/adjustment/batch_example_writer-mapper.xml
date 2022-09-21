@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="io.barogo.adjustment.persistence.adjustment.mapper.BatchExampleWriterMapper">
+
+    <insert id="createBatchExampleWriter" parameterType="io.barogo.adjustment.model.entity.adjustment.mybatis.BatchExampleWriter">
+        insert into batch_example_writer
+            (
+                id,
+                name
+            )
+        values
+            (
+                #{id},
+                #{name}
+            )
+    </insert>
+</mapper>

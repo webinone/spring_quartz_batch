@@ -10,7 +10,7 @@
     <property name="blob_type" value="BYTEA" dbms="postgresql"/>
     <property name="blob_type" value="BLOB"/>
 
-    <changeSet id="quartz-error-jobs-init" author="zoo">
+    <changeSet id="quartz-error-jobs-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="quartz_error_jobs"/>
@@ -59,7 +59,7 @@
         </createIndex>
     </changeSet>
 
-    <changeSet id="shedlock-init" author="zoo">
+    <changeSet id="shedlock-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="SHEDLOCK"/>
@@ -82,7 +82,7 @@
         <addPrimaryKey columnNames="NAME" tableName="SHEDLOCK"/>
     </changeSet>
 
-    <changeSet id="quartz-locks-init" author="quartz">
+    <changeSet id="quartz-locks-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}LOCKS"/>
@@ -99,7 +99,7 @@
         <addPrimaryKey columnNames="SCHED_NAME, LOCK_NAME" tableName="${table_prefix}LOCKS"/>
     </changeSet>
 
-    <changeSet id="quartz-fired_triggers-init" author="quartz">
+    <changeSet id="quartz-fired_triggers-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}FIRED_TRIGGERS"/>
@@ -174,7 +174,7 @@
         </createIndex>
     </changeSet>
 
-    <changeSet id="quartz-calendars-init" author="quartz">
+    <changeSet id="quartz-calendars-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}CALENDARS"/>
@@ -194,7 +194,7 @@
         <addPrimaryKey columnNames="SCHED_NAME, CALENDAR_NAME" tableName="${table_prefix}CALENDARS"/>
     </changeSet>
 
-    <changeSet id="quartz-paused_triggers_grps-init" author="quartz">
+    <changeSet id="quartz-paused_triggers_grps-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}PAUSED_TRIGGER_GRPS"/>
@@ -211,7 +211,7 @@
         <addPrimaryKey columnNames="SCHED_NAME, TRIGGER_GROUP" tableName="${table_prefix}PAUSED_TRIGGER_GRPS"/>
     </changeSet>
 
-    <changeSet id="quartz-scheduler_state-init" author="quartz">
+    <changeSet id="quartz-scheduler_state-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}SCHEDULER_STATE"/>
@@ -234,7 +234,7 @@
         <addPrimaryKey columnNames="SCHED_NAME, INSTANCE_NAME" tableName="${table_prefix}SCHEDULER_STATE"/>
     </changeSet>
 
-    <changeSet id="quartz-job_details-init" author="quartz">
+    <changeSet id="quartz-job_details-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}JOB_DETAILS"/>
@@ -281,7 +281,7 @@
         </createIndex>
     </changeSet>
 
-    <changeSet id="quartz-triggers-init" author="quartz">
+    <changeSet id="quartz-triggers-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}TRIGGERS"/>
@@ -389,7 +389,7 @@
         </createIndex>
     </changeSet>
 
-    <changeSet id="quartz-blob_triggers-init" author="quartz">
+    <changeSet id="quartz-blob_triggers-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}BLOB_TRIGGERS"/>
@@ -410,7 +410,7 @@
         <addPrimaryKey columnNames="SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP" tableName="${table_prefix}BLOB_TRIGGERS"/>
     </changeSet>
 
-    <changeSet id="quartz-simprop_triggers-init" author="quartz">
+    <changeSet id="quartz-simprop_triggers-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}SIMPROP_TRIGGERS"/>
@@ -441,7 +441,7 @@
         <addPrimaryKey columnNames="SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP" tableName="${table_prefix}SIMPROP_TRIGGERS"/>
     </changeSet>
 
-    <changeSet id="quartz-cron_triggers-init" author="quartz">
+    <changeSet id="quartz-cron_triggers-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}CRON_TRIGGERS"/>
@@ -465,7 +465,7 @@
         <addPrimaryKey columnNames="SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP" tableName="${table_prefix}CRON_TRIGGERS"/>
     </changeSet>
 
-    <changeSet id="quartz-simple_triggers-init" author="quartz">
+    <changeSet id="quartz-simple_triggers-init" author="zoo-adjustment">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${table_prefix}SIMPLE_TRIGGERS"/>

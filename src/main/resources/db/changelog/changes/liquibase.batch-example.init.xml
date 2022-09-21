@@ -1,0 +1,52 @@
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="batch-example-reader" author="zoo-adjustment">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="batch_example_reader"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="batch_example_reader">
+            <column name="seq" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="batch_example_reader_seq_pk"/>
+            </column>
+
+            <column name="id" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet id="batch-example-writer" author="zoo-adjustment">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="batch_example_writer"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="batch_example_writer">
+            <column name="seq" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="batch_example_writer_seq_pk"/>
+            </column>
+
+            <column name="id" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

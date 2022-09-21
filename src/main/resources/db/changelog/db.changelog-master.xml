@@ -5,4 +5,5 @@
                         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
     <include file="changes/liquibase.quartz.init.xml" relativeToChangelogFile="true"/>
     <include file="changes/liquibase.batch.init.xml" relativeToChangelogFile="true"/>
+    <include file="changes/liquibase.batch-example.init.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
