@@ -9,4 +9,6 @@ public interface BatchExampleReaderMapper {
 
   BatchExampleReader readAll();
 
+  BatchExampleReader readPaging();
+
 }

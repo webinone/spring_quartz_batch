@@ -12,6 +12,14 @@
         </encoder>
     </appender>
 
+    <!-- mybatis mapper trace -->
+    <springProfile name="localhost">
+        <logger name="io.barogo.adjustment.persistence.adjustment.mapper">
+            <level value="trace"/>
+        </logger>
+    </springProfile>
+
+
     <root level="info">
         <appender-ref ref="CONSOLE" />
     </root>

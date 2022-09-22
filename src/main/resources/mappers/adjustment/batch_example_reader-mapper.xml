@@ -7,4 +7,8 @@
         SELECT seq, id, name FROM BATCH_EXAMPLE_READER
     </select>
 
+    <select id="readPaging" resultType="io.barogo.adjustment.model.entity.adjustment.mybatis.BatchExampleReader">
+        SELECT seq, id, name FROM BATCH_EXAMPLE_READER ORDER BY seq ASC OFFSET #{_skiprows} limit #{_pagesize}
+    </select>
+
 </mapper>
