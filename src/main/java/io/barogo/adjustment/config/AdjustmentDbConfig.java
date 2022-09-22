@@ -11,6 +11,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.quartz.QuartzDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +23,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @RequiredArgsConstructor
 @EnableTransactionManagement
-//@MapperScan(value = "io.barogo.adjustment.persistence.adjustment.mapper", sqlSessionFactoryRef = "adjustmentSqlSessionFactory")
 public class AdjustmentDbConfig {
 
   private final ApplicationContext applicationContext;
@@ -40,7 +40,6 @@ public class AdjustmentDbConfig {
   public DataSource adjustmentDataSource() {
     return new HikariDataSource(adjustmentHikariConfig());
   }
-
 
   // mybatis - adjustment
   //------------------------------------------------------------------------------------
