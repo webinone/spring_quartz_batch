@@ -28,3 +28,21 @@ spring:
             threadCount: 20
             threadPriority: 5
             threadsInheritContextClassLoaderOfInitializingThread: true
+
+kafka:
+  topic:
+    group-id: zoo-adjustment
+    hub-transactions:
+      name: zoo.queueing.event.adjustment.updated.hub-transactions
+      producer:
+        acks: 1
+
+    distributor-transactions:
+      name: zoo.queueing.event.adjustment.updated.distributor-transactions
+      producer:
+        acks: 1
+
+    store-transactions:
+      name: zoo.queueing.event.adjustment.updated.store-transactions
+      producer:
+        acks: 1

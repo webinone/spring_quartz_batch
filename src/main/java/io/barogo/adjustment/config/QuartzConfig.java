@@ -32,7 +32,7 @@ public class QuartzConfig {
         .startNow()
         .withSchedule(simpleSchedule()
             .withIntervalInSeconds(10)
-            .withRepeatCount(1))
+            .withRepeatCount(0))
         .forJob(job)
         .build();
   }
