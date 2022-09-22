@@ -3,7 +3,6 @@ package io.barogo.adjustment.config;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
-
 import io.barogo.adjustment.scheduler.BatchExampleScheduler;
 import lombok.RequiredArgsConstructor;
 import org.quartz.JobBuilder;
@@ -33,7 +32,7 @@ public class QuartzConfig {
         .startNow()
         .withSchedule(simpleSchedule()
             .withIntervalInSeconds(10)
-            .repeatForever())
+            .withRepeatCount(1))
         .forJob(job)
         .build();
   }

@@ -1,6 +1,7 @@
 package io.barogo.adjustment.jobs;
 
 import io.barogo.adjustment.jobs.processor.BatchExampleProcessor;
+import io.barogo.adjustment.listener.JobCompletionNotificationListener;
 import io.barogo.adjustment.model.entity.adjustment.mybatis.BatchExampleWriterDto;
 import io.barogo.adjustment.model.entity.o2o.BaromoneyHistoryOfHubDTO;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 @RequiredArgsConstructor
@@ -25,13 +27,14 @@ public class BatchExampleConfig {
   private final JobBuilderFactory jobBuilderFactory;
   private final StepBuilderFactory stepBuilderFactory;
   private final SqlSessionFactory adjustmentSqlSessionFactory;
+  private final JobCompletionNotificationListener jobCompletionNotificationListener;
 
   @Bean
   public Job batchExampleJob (
       @Qualifier("o2oSqlSessionFactory") SqlSessionFactory o2oSqlSessionFactory
   ) {
     return jobBuilderFactory.get("batchExampleJob")
-        .start(batchExampleStep(o2oSqlSessionFactory)).build();
+        .start(batchExampleStep(o2oSqlSessionFactory)).listener(jobCompletionNotificationListener).build();
   }
 
   @Bean

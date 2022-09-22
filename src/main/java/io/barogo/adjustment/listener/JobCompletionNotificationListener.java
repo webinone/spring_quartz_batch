@@ -20,7 +20,7 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
       String jobName = jobExecution.getJobInstance().getJobName();
       Long jobId = jobExecution.getJobId();
 
-      commonLog.info("jobname: " + jobName + " - jobId" + jobId + "!!! JOB FINISHED! Time to verify the results");
+      commonLog.info("jobName: " + jobName + " - jobId" + jobId + "!!! JOB FINISHED! Time to verify the results");
     }
   }
 }
