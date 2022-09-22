@@ -3,16 +3,18 @@
 
 <mapper namespace="io.barogo.adjustment.persistence.adjustment.mapper.BatchExampleWriterMapper">
 
-    <insert id="createBatchExampleWriter" parameterType="io.barogo.adjustment.model.entity.adjustment.mybatis.BatchExampleWriter">
+    <insert id="createBatchExampleWriter" parameterType="io.barogo.adjustment.model.entity.adjustment.mybatis.BatchExampleWriterDto">
         insert into batch_example_writer
             (
-                id,
-                name
+                transaction_no,
+                order_id,
+                memo
             )
         values
             (
-                #{id},
-                #{name}
+                #{transactionNo},
+                #{orderId},
+                #{memo}
             )
     </insert>
 </mapper>

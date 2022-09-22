@@ -12,13 +12,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BatchExampleReader {
+public class BatchExampleWriterDto {
 
   private Long seq;
 
-  private String id ;
+  private Long transactionNo ;
 
-  private String name;
+  private Long orderId;
 
+  private String memo;
 
 }

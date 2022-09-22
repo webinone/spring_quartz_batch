@@ -1,16 +1,19 @@
 package io.barogo.adjustment.jobs.processor;
 
-import io.barogo.adjustment.model.entity.adjustment.mybatis.BatchExampleReader;
-import io.barogo.adjustment.model.entity.adjustment.mybatis.BatchExampleWriter;
+import io.barogo.adjustment.model.entity.adjustment.mybatis.BatchExampleWriterDto;
+import io.barogo.adjustment.model.entity.o2o.BaromoneyHistoryOfHubDTO;
 import org.springframework.batch.item.ItemProcessor;
 
-public class BatchExampleProcessor implements ItemProcessor<BatchExampleReader, BatchExampleWriter> {
+public class BatchExampleProcessor implements ItemProcessor<BaromoneyHistoryOfHubDTO, BatchExampleWriterDto> {
 
   @Override
-  public BatchExampleWriter process(BatchExampleReader item) throws Exception {
+  public BatchExampleWriterDto process(BaromoneyHistoryOfHubDTO item) throws Exception {
 
-    return BatchExampleWriter.builder()
-        .id(item.getId() + "-id-writer")
-        .name(item.getName() + "-name-writer").build();
+    return BatchExampleWriterDto.builder()
+        .transactionNo(item.getBr_cash_no())
+        .orderId(item.getOrd_no())
+        .memo(item.getBr_cash_memo())
+        .build();
+
   }
 }

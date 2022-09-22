@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.quartz.QuartzDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -21,13 +22,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @RequiredArgsConstructor
 @EnableTransactionManagement
+//@MapperScan(value = "io.barogo.adjustment.persistence.adjustment.mapper", sqlSessionFactoryRef = "adjustmentSqlSessionFactory")
 public class AdjustmentDbConfig {
 
   private final ApplicationContext applicationContext;
 
   @Bean
   @ConfigurationProperties(prefix = "datasource.adjustment.hikari")
-  public HikariConfig schedulerHikariConfig() {
+  public HikariConfig adjustmentHikariConfig() {
     return new HikariConfig();
   }
 
@@ -36,7 +38,7 @@ public class AdjustmentDbConfig {
   @ConfigurationProperties(prefix = "datasource.adjustment")
   @QuartzDataSource
   public DataSource adjustmentDataSource() {
-    return new HikariDataSource(schedulerHikariConfig());
+    return new HikariDataSource(adjustmentHikariConfig());
   }
 
 

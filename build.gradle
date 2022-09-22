@@ -30,6 +30,9 @@ dependencies {
     runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
     runtimeOnly 'org.postgresql:postgresql'
 
+    /** 오라클 다국어 지원 (지원되지 않는 문자 집합(클래스 경로에 orai18n.jar 추가): KO16MSWIN949 오류 해결을 위한 라이브러리) **/
+    implementation 'com.oracle.ojdbc:orai18n:19.3.0.0'
+
     /** liquibase **/
     implementation 'org.liquibase:liquibase-core'
 

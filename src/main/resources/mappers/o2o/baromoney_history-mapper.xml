@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="io.barogo.adjustment.persistence.o2o.mapper.BaromoneyHistoryOfHubMapper">
+
+  <select id="readHistory" resultType="io.barogo.adjustment.model.entity.o2o.BaromoneyHistoryOfHubDTO">
+      <include refid="PaginationMapper.pagingHeader"></include>
+      <![CDATA[
+          SELECT * FROM (
+              SELECT t.*
+              FROM APPSIS.ALD_ADJ_BR_CASH_LOG t
+          ) WHERE ROWNUM <= 20
+      ]]>
+      <include refid="PaginationMapper.pagingFooter"></include>
+  </select>
+
+</mapper>

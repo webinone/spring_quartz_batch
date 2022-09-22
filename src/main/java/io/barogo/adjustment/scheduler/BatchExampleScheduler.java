@@ -1,7 +1,7 @@
 package io.barogo.adjustment.scheduler;
 
+import io.barogo.adjustment.common.log.CommonLog;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.batch.core.Job;
@@ -11,17 +11,18 @@ import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Component
 @RequiredArgsConstructor
 public class BatchExampleScheduler extends QuartzJobBean {
 
   private final Job batchExampleJob;
   private final JobLauncher jobLauncher;
+  private final CommonLog commonLog;
 
   @Override
   protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-    log.info(">>>> BatchExampleScheduler ! ");
+
+    commonLog.info(">>>> executeInternal !!");
 
     JobParameters jobParameters = new JobParametersBuilder().addLong("uniqueness", System.nanoTime()).toJobParameters();
 
